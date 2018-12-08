@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:100" rel="stylesheet">
+</head>
+
+<body>
+    <div id="clock">12:13:14</div>
+
+    <script>
+        function colorClock() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            if (hours < 10) {
+                hours = '0' + hours;
+            }
+            var clockFace = hours + ' : ' + minutes + ' : ' + seconds;
+
+            document.getElementById('clock').innerHTML = clockFace;
+
+            var hexColor = '#' + hours + minutes + seconds;
+
+            document.body.style.background = hexColor;
+
+            setTimeout(function() {
+                colorClock();
+            }, 1000);
+        }
+        colorClock();
+    </script>
+</body>
+
+</html>
